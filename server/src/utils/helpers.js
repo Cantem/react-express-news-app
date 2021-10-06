@@ -1,0 +1,1 @@
+export const filterArticlesWithImages = (articles) => articles.filter( article => article.urlToImage);
