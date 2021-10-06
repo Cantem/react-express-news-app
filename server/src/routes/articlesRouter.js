@@ -1,12 +1,13 @@
 import { Router } from 'express';
 import asyncHandler from 'express-async-handler';
+import { getTopArticles } from '../controllers/articlesController';
 
 
 const articlesRouter = Router();
 
 articlesRouter.get(
   '/top-articles',
-  asyncHandler({ message: 'Success' }),
+  asyncHandler(getTopArticles),
 );
 
 articlesRouter.get(
