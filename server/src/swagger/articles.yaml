@@ -1,0 +1,13 @@
+paths:
+  /top-articles:
+    get:
+      tags:
+        - Articles
+      summary: Get top US articles
+      responses:
+        200:
+          description: Get top stories
+          content:
+            application/json:
+              schema:
+                type: array
