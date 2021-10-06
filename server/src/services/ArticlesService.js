@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { EXTERNAL_API } from '../common/constants';
-import { filterArticlesWithImages } from '../utils/helpers';
+import { filterArticlesWithImages, modifyErrorLog } from '../utils/helpers';
 
 export class ArticlesService {
   async getArticles() {
@@ -10,7 +10,8 @@ export class ArticlesService {
 
       return filterArticlesWithImages(response.data.articles);
     } catch(error) {
-      console.error('GET ARTICLES SERVICE', error);
+      const err = modifyErrorLog(error);
+      console.error('GET ARTICLES SERVICE', err);
       throw error
     }
   }
