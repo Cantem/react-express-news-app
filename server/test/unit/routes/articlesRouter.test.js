@@ -9,7 +9,8 @@ jest.mock('../../../src/controllers/articlesController', () => {
     return Promise.resolve();
   };
   return {
-    getTopArticles: jest.fn().mockImplementation(mockSuccessResponse)
+    getTopArticles: jest.fn().mockImplementation(mockSuccessResponse),
+    searchArticles: jest.fn().mockImplementation(mockSuccessResponse)
   };
 });
 
@@ -32,6 +33,16 @@ describe('articlesRouter', () => {
       expect(
         articlesController.getTopArticles.mock.calls[0][0].params
       ).toStrictEqual({});
+    });
+  });
+
+  describe('get /search-articles/:topic', () => {
+    it('should return status 200', async () => {
+      const topic = 'business';
+      await request(app).get(`/search-articles/${topic}`);
+      expect(
+        articlesController.searchArticles.mock.calls[0][0].params
+      ).toStrictEqual({ topic: 'business' });
     });
   });
 });
