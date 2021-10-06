@@ -1,0 +1,3 @@
+export {
+  searchAllArticlesValidation,
+} from './searchArticlesValidator';

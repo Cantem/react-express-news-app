@@ -19,4 +19,19 @@ export class ArticlesService {
       throw error;
     }
   }
+
+  async searchAllArticles(topic) {
+    const url = new URL(
+      EXTERNAL_API.DOMAIN +
+        `${EXTERNAL_API.SEARCH}${topic}&${EXTERNAL_API.SORT_BY_PUBLISHED_AT}&apiKey=${process.env.NEWS_API_KEY}`
+    );
+    try {
+      const response = await axios.get(url.href);
+      return filterArticlesWithImages(response.data.articles);
+    } catch (error) {
+      const err = modifyErrorLog(error);
+      console.error('SEARCH ARTICLES SERVICE', err);
+      throw error;
+    }
+  }
 }

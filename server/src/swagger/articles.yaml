@@ -11,3 +11,23 @@ paths:
             application/json:
               schema:
                 type: array
+  /search-articles/{topic}:
+    get:
+      tags:
+        - Articles
+      summary: Search articles
+      parameters:
+       - name: topic
+         in: path
+         required: true
+         description: topic of requested articles
+         schema:
+          type: string
+          example: business
+      responses:
+        200:
+          description: Search articles
+          content:
+            application/json:
+              schema:
+                type: array

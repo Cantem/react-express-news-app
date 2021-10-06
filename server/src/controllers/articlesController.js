@@ -3,14 +3,29 @@ import { modifyErrorLog } from '../utils/helpers';
 
 const articlesService = new ArticlesService();
 
-export async function getTopArticles(req, res) {
+export async function getTopArticles(_req, res) {
   try {
     const data = await articlesService.getArticles();
 
     res.send(data);
   } catch (error) {
     const err = modifyErrorLog(error);
-    console.error("GET TOP ARTICLES CONTROLLER", err);
+    console.error('GET TOP ARTICLES CONTROLLER', err);
+    throw error;
+  }
+}
+
+export async function searchArticles(req, res) {
+  const {
+    params: { topic }
+  } = req;
+  try {
+    const data = await articlesService.searchAllArticles(topic);
+
+    res.send(data);
+  } catch (error) {
+    const err = modifyErrorLog(error);
+    console.error('SEARCH ARTICLES CONTROLLER', err);
     throw error;
   }
 }
