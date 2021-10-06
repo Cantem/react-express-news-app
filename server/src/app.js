@@ -1,12 +1,28 @@
-const express = require('express')
-const app = express()
-const port = 3000
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import 'dotenv/config';
+import swaggerUi from 'swagger-ui-express';
+import swaggerSpec, { swaggerUiOptions } from '../src/swagger/swaggerSpec';
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+const app = express();
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+// middleware
+app.use(cors());
+app.use(helmet());
+
+//swagger
+app.get('/', (req, res) => res.redirect('/docs'));
+app.use(
+  '/docs',
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerSpec, swaggerUiOptions)
+);
+app.get('/swagger.json', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerSpec);
 });
 
+// routes
+
+export default app;
