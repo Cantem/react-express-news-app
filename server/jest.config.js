@@ -1,7 +1,7 @@
 module.exports = async () => {
   return {
     displayName: {
-      name: 'NEWS API SERVICE',
+      name: 'EXPRESS NEWS SERVER',
       color: 'blue'
     },
     clearMocks: true,
