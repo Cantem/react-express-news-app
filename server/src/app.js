@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import 'dotenv/config';
 import swaggerUi from 'swagger-ui-express';
 import swaggerSpec, { swaggerUiOptions } from '../src/swagger/swaggerSpec';
+import routes from './routes/index.js';
 
 const app = express();
 
@@ -24,5 +25,6 @@ app.get('/swagger.json', (req, res) => {
 });
 
 // routes
+app.use(routes);
 
 export default app;

@@ -1,0 +1,12 @@
+paths:
+  /health:
+    get:
+      tags:
+        - Health
+      summary: Health Check
+      responses:
+        200:
+          description: Success
+        500:
+          description: Error
+          
