@@ -27,7 +27,6 @@ const Container = () => {
     const getTopArticles = async () => {
       setLoading(true);
       const data = await getArticles();
-      console.log('data', data);
       setArticles(data);
       setLoading(false);
     };
