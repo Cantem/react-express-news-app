@@ -11,7 +11,6 @@ import ModalDialog from './ModalDialog';
 const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
-    marginBottom: 20
   },
   title: {
     flexGrow: 1
