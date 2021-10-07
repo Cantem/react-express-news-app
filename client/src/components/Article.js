@@ -4,35 +4,51 @@ import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import { makeStyles } from '@material-ui/core/styles';
+import { useTheme, useMediaQuery, makeStyles } from '@material-ui/core';
 
-const useStyles = makeStyles({
-  card: {
-    width: '40vw',
-    maxHeight: '200px',
-    boxShadow: '0 5px 8px 0 rgba(0, 0, 0, 0.3)',
+
+const useStyles = makeStyles(theme => ({
+  mainContainer: {
     display: 'flex',
-    flexDirection: 'row-reverse'
-  },
-  media: {
+    flexDirection: 'row-reverse',
+    width: '100%',
     height: '200px',
-    width: '200px'
+    maxHeight: '75%',
+    boxShadow: '0 5px 8px 0 rgba(0, 0, 0, 0.3)',
+  },
+  leftContainer: {
+    flex: '0 1 40%',
+    minHeight: '100%',
+    maxWidth: '40%',
+    padding: '.5e',
+  },
+  rightContainer: {
+    flex: '0 1 60%',
+    display: 'flex',
+    height: '100%',
+    maxWidth: '60%',
+    flexWrap: 'wrap',
+    alignItems: 'flex-start'
   }
-});
+}));
+
 
 const Article = ({ article }) => {
+  // @todo add mobile card styles
+  const theme = useTheme();
+  const showMedia = useMediaQuery(theme.breakpoints.up('md'));
   const classes = useStyles();
   return (
     <div className={classes.root}>
       {article && (
-        <Card className={classes.card}>
-          <CardMedia
-            className={classes.media}
+        <Card className={classes.mainContainer}>
+          {showMedia && <CardMedia
+            className={classes.leftContainer}
             component="img"
             src={article.urlToImage}
             alt="news-img"
-          />
-          <CardContent>
+          />}
+          <CardContent className={classes.rightContainer}>
             <Typography color="primary" variant="subtitle1">
               <a
                 href={article.url}

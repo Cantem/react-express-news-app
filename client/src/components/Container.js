@@ -10,6 +10,7 @@ const Container = () => {
   const [loading, setLoading] = useState(false);
   const [articles, setArticles] = useState(mockData);
   const styles = {
+    width: '100%',
     backgroundColor: '#e9ebf0',
     display: 'flex',
     flexDirection: 'column',
@@ -36,8 +37,8 @@ const Container = () => {
   return (
     <div style={styles}>
       <Navbar />
-      <Searchbar searchArticles={searchArticles} />
-      <Articles loading={loading} articles={articles} />
+        <Searchbar searchArticles={searchArticles} />
+        <Articles loading={loading} articles={articles} />
       <Footer />
     </div>
   );

@@ -5,18 +5,18 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Article from './Article.js';
 import PropTypes from 'prop-types';
 
+
 const useStyles = makeStyles({
-  card: {
-    maxWidth: 345,
-    boxShadow: '0 5px 8px 0 rgba(0, 0, 0, 0.3)',
-    backgroundColor: '#fafafa'
-  },
-  media: {
-    height: 500
-  },
   container: {
-    display: 'grid',
-    justifyContent: 'center'
+    maxWidth: '50vw'
+
+  },
+  // @todo add fixed height container and fix spinner position
+    loader: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
   }
 });
 
@@ -26,14 +26,12 @@ export default function Articles({ loading, articles }) {
   return (
     <div className={classes.container}>
       {loading ? (
-        <CircularProgress />
+        <CircularProgress className={classes.loader} variant="indeterminate" />
       ) : (
         <div className={classes.root}>
           <Grid
             container
             spacing={3}
-            direction={'column'}
-            justifyContent={'center'}
           >
             {articles.map((article, index) => (
               <Grid item xs={12} key={index}>
