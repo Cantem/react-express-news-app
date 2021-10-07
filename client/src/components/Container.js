@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Navbar from './Navbar';
 import Footer from './Footer';
 import Articles from './Articles';
 import { getArticles } from '../api/api';
@@ -25,6 +26,7 @@ const Container = () => {
 
   return (
     <div style={styles}>
+      <Navbar />
       <Articles loading={loading} articles={articles} />
       <Footer />
     </div>
