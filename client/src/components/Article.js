@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
 import { useTheme, useMediaQuery, makeStyles } from '@material-ui/core';
-
+import { truncateTitle, truncateDescription } from '../utils/helpers';
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
@@ -27,8 +28,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     height: '100%',
     maxWidth: '60%',
-    flexWrap: 'wrap',
-    alignItems: 'flex-start'
+    flexDirection: 'column'
   }
 }));
 
@@ -41,29 +41,26 @@ const Article = ({ article }) => {
   return (
     <div className={classes.root}>
       {article && (
-        <Card className={classes.mainContainer}>
-          {showMedia && <CardMedia
-            className={classes.leftContainer}
-            component="img"
-            src={article.urlToImage}
-            alt="news-img"
-          />}
-          <CardContent className={classes.rightContainer}>
-            <Typography color="primary" variant="subtitle1">
-              <a
-                href={article.url}
-                target="_blank"
-                rel="noreferrer"
-                style={{ textDecoration: 'none', color: 'black' }}
-              >
-                {article.title}
-              </a>
-            </Typography>
-            <Typography color="textSecondary" variant="body2">
-              {article.description}
-            </Typography>
-          </CardContent>
-        </Card>
+        <CardActionArea href={article.url} target="_blank">
+          <Card className={classes.mainContainer}>
+            {showMedia && (
+              <CardMedia
+                className={classes.leftContainer}
+                component="img"
+                src={article.urlToImage}
+                alt="news-img"
+              />
+            )}
+            <CardContent className={classes.rightContainer}>
+              <Typography color="textPrimary" variant="subtitle1">
+                  {truncateTitle(article.title)}
+              </Typography>
+              <Typography color="textSecondary" paragraph={true}>
+                {truncateDescription(article.description)}
+              </Typography>
+            </CardContent>
+          </Card>
+        </CardActionArea>
       )}
     </div>
   );
