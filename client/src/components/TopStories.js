@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Layout from './Layout';
@@ -30,11 +29,9 @@ export const TopStories = () => {
   return (
     <Layout>
       <NavLink to="/">
-        <Link component="button" variant="body2">
           <Button className={classes.button} variant="contained" size="large" color="primary">
             Go Back
           </Button>
-        </Link>
       </NavLink>
       <Articles loading={loading} articles={articles} />
     </Layout>
