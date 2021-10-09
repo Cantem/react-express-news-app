@@ -34,7 +34,6 @@ const useStyles = makeStyles(theme => ({
 
 
 const Article = ({ article }) => {
-  // @todo add mobile card styles
   const theme = useTheme();
   const showMedia = useMediaQuery(theme.breakpoints.up('md'));
   const classes = useStyles();
@@ -55,7 +54,7 @@ const Article = ({ article }) => {
               <Typography color="textPrimary" variant="subtitle1">
                   {truncateTitle(article.title)}
               </Typography>
-              <Typography color="textSecondary" paragraph={true}>
+              <Typography color="textSecondary" variant="body2" paragraph={true}>
                 {truncateDescription(article.description)}
               </Typography>
             </CardContent>

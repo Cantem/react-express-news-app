@@ -7,6 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
 import ModalDialog from './ModalDialog';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -46,6 +47,16 @@ const Navbar = () => {
         <Typography variant="h6" className={classes.title}>
           React News App
         </Typography>
+        <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
+            <Button color='inherit'>
+              Home
+            </Button>
+          </Link> 
+          <Link to='/top-stories' style={{ textDecoration: 'none', color: 'white' }}>
+            <Button color='inherit'>
+              Top Stories
+            </Button>
+          </Link>
         <Button color="inherit" onClick={handleOpen}>
           Signup
         </Button>
