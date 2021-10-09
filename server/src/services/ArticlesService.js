@@ -1,16 +1,18 @@
 import axios from 'axios';
-import { EXTERNAL_API } from '../common/constants';
+import {
+  API_URL,
+  API_KEY,
+  API_PARAMS,
+  API_SORT_BY,
+  API_SEARCH_FOR
+} from '../common/constants';
 import { filterArticlesWithImages, modifyErrorLog } from '../utils/helpers';
 
 export class ArticlesService {
   async getArticles() {
-    const url = new URL(
-      EXTERNAL_API.DOMAIN +
-        EXTERNAL_API.GET_TOP_ARTICLES +
-        `&apiKey=${process.env.NEWS_API_KEY}`
-    );
+    const url = `${API_URL}/top-headlines?country=us&languages=en${API_KEY}${API_PARAMS}`;
     try {
-      const response = await axios.get(url.href);
+      const response = await axios.get(url);
 
       return filterArticlesWithImages(response.data.articles);
     } catch (error) {
@@ -21,12 +23,9 @@ export class ArticlesService {
   }
 
   async searchAllArticles(topic) {
-    const url = new URL(
-      EXTERNAL_API.DOMAIN +
-        `${EXTERNAL_API.SEARCH}${topic}&${EXTERNAL_API.SORT_BY_PUBLISHED_AT}&apiKey=${process.env.NEWS_API_KEY}`
-    );
+    const url = `${API_URL}${API_SEARCH_FOR}${topic}${API_KEY}${API_PARAMS}${API_SORT_BY}`;
     try {
-      const response = await axios.get(url.href);
+      const response = await axios.get(url);
       return filterArticlesWithImages(response.data.articles);
     } catch (error) {
       const err = modifyErrorLog(error);
