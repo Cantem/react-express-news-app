@@ -3,8 +3,18 @@ import TextField from '@material-ui/core/TextField';
 import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  container: {
+    marginBottom: '40px',
+    width: '40vw'
+  }
+});
+
 
 const Searchbar = ({ searchArticles }) => {
+  const classes = useStyles();
   const [text, setText] = useState('');
 
   const handleChange = (e) => {
@@ -15,12 +25,9 @@ const Searchbar = ({ searchArticles }) => {
     e.preventDefault();
     searchArticles(text);
   };
-  const styles = {
-    marginBottom: '40px',
-    width: '40vw'
-  };
+
   return (
-    <div style={styles}>
+    <div className={classes.container}>
       <form onSubmit={handleSubmit}>
         <TextField
           id="outline-basic"
