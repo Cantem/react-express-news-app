@@ -11,10 +11,10 @@ const Container = () => {
   const [articles, setArticles] = useState(mockData);
   const styles = {
     width: '100%',
-    backgroundColor: '#e9ebf0',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    height: '100vh',
   };
 
   const searchArticles = async (text) => {
@@ -36,10 +36,10 @@ const Container = () => {
 
   return (
     <div style={styles}>
-      <Navbar />
+        <Navbar />
         <Searchbar searchArticles={searchArticles} />
         <Articles loading={loading} articles={articles} />
-      <Footer />
+        <Footer />
     </div>
   );
 };

@@ -10,7 +10,7 @@ import { useTheme, useMediaQuery, makeStyles } from '@material-ui/core';
 const useStyles = makeStyles(theme => ({
   mainContainer: {
     display: 'flex',
-    flexDirection: 'row-reverse',
+    flexDirection: 'row',
     width: '100%',
     height: '200px',
     maxHeight: '75%',

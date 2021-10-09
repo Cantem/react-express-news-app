@@ -7,21 +7,20 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   container: {
-    width: '100%'
+    width: '100%',
+    maxHeight: '20vh'
   }
 });
-
 
 export default function Footer() {
   const classes = useStyles();
   return (
     <footer className={classes.container}>
       <Box
-        px={{ xs: 3, sm: 10 }}
-        py={{ xs: 5, sm: 10 }}
+        px={{ xs: 3, sm: 5 }}
+        py={{ xs: 5, sm: 5 }}
         bgcolor="#3f51b5"
         color="white"
-        marginTop="40px"
         sx={{ fontSize: 20, fontWeight: 'medium' }}
       >
         <Container maxWidth="lg">
