@@ -10,7 +10,7 @@ import { filterArticlesWithImages, modifyErrorLog } from '../utils/helpers';
 
 export class ArticlesService {
   async getArticles() {
-    const url = `${API_URL}/top-headlines?country=us&languages=en${API_KEY}${API_PARAMS}`;
+    const url = `${API_URL}/top-headlines?country=us&languages=en${API_KEY}`;
     try {
       const response = await axios.get(url);
 
