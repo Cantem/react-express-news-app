@@ -7,12 +7,12 @@ paths:
       parameters:
         - in: query
           name: pageSize
-          required: true
+          required: false
           schema:
             type: integer
         - in: query
           name: page
-          required: true
+          required: false
           schema:
             type: integer
       responses:

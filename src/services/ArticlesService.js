@@ -1,16 +1,13 @@
 import axios from 'axios';
 import {
   API_URL,
-  API_KEY,
-  API_PARAMS,
-  API_SORT_BY,
   API_SEARCH_FOR
 } from '../common/constants';
 import { modifyErrorLog } from '../utils/helpers';
 
 export class ArticlesService {
   async getArticles(pageSize, page) {
-    const url = `${API_URL}/top-headlines?country=us&languages=en&pageSize=${pageSize}&page=${page}${API_KEY}`;
+    const url = `${API_URL}/top-headlines?country=us&languages=en&pageSize=${pageSize}&page=${page}&apiKey=${process.env.NEWS_API_KEY}`;
     try {
       const response = await axios.get(url);
       return response.data;
@@ -22,7 +19,7 @@ export class ArticlesService {
   }
 
   async searchAllArticles(topic, pageSize, page) {
-    const url = `${API_URL}${API_SEARCH_FOR}${topic}&languages=en&pageSize=${pageSize}&page=${page}${API_KEY}`
+    const url = `${API_URL}${API_SEARCH_FOR}${topic}&languages=en&pageSize=${pageSize}&page=${page}&apiKey=${process.env.NEWS_API_KEY}`
     try {
       const response = await axios.get(url);
       return response.data;
