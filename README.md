@@ -1,4 +1,4 @@
-# react-express-news-app
+# React-express-news-app
 
 React-Express-App is a simple news applicaiton which uses React and Material UI for the client side and Express and Node for server side. It utilizes NewsAPI (https://newsapi.org/) for the back-end part of the application.
 
@@ -59,4 +59,25 @@ You should see that both client and server are running
 [1] webpack 5.57.1 compiled successfully in 5930 ms
 [0] Server running on port 5000
 ```
+
+## Technologies & Tools
+
+* React
+* Node
+* Express
+* Material UI
+* Swagger
+* Jest
+
+## Swagger
+
+An additional conveninat feature is swagger interface.
+
+
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
 
