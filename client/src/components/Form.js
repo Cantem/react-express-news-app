@@ -27,7 +27,7 @@ const Form = ({ handleClose }) => {
   const { handleSubmit, control } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    // @todo
   };
 
   return (
