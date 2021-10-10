@@ -3,9 +3,10 @@ import { modifyErrorLog } from '../utils/helpers';
 
 const articlesService = new ArticlesService();
 
-export async function getTopArticles(_req, res) {
+export async function getTopArticles(req, res) {
+  const { query: { pageSize, page } } = req;
   try {
-    const data = await articlesService.getArticles();
+    const data = await articlesService.getArticles(pageSize, page);
 
     res.send(data);
   } catch (error) {

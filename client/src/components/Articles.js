@@ -1,4 +1,4 @@
-import React from 'react';
+import React  from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -28,15 +28,20 @@ export default function Articles({ loading, articles }) {
   return (
     <div className={classes.container}>
       {loading ? (
-        <CircularProgress className={classes.loader} size={60} variant="indeterminate" />
+        <CircularProgress
+          className={classes.loader}
+          size={60}
+          variant="indeterminate"
+        />
       ) : (
         <div className={classes.root}>
           <Grid container spacing={3}>
-            {articles.map((article, index) => (
-              <Grid item xs={12} key={index}>
-                <Article article={article} />
-              </Grid>
-            ))}
+            {articles &&
+              articles.map((article, index) => (
+                <Grid item xs={12} key={index}>
+                  <Article article={article} />
+                </Grid>
+              ))}
           </Grid>
         </div>
       )}

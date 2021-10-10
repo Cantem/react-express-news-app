@@ -4,6 +4,17 @@ paths:
       tags:
         - Articles
       summary: Get top US articles
+      parameters:
+        - in: query
+          name: pageSize
+          required: true
+          schemat:
+            type: integer
+        - in: query
+          name: page
+          required: true
+          schema:
+            type: integer
       responses:
         200:
           description: Get top stories
