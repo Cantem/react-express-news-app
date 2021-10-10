@@ -34,7 +34,7 @@ export const TopStories = () => {
 
   return (
     <Layout>
-      <NavLink to="/">
+      <NavLink to="/" style={{ textDecoration: 'none' }}>
           <Button className={classes.button} variant="contained" size="large" color="primary">
             Go Back
           </Button>

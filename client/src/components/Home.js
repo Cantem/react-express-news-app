@@ -37,6 +37,9 @@ const Home = () => {
       setLoading(true);
       const data = await getArticles(page, perPage);
       setTotalPages(data.totalResults);
+      if(articles.length > 0) {
+        setArticles([...data.articles]);
+      }
       setArticles([...articles, ...data.articles]);
       setLoading(false);
     };
