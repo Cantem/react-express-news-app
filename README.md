@@ -60,6 +60,8 @@ You should see that both client and server are running
 [0] Server running on port 5000
 ```
 
+For easier development experience there's some mockData available at `client/src/api/mockData.js`.
+
 ## Technologies & Tools
 
 * React
