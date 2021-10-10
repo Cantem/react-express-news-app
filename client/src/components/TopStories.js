@@ -16,15 +16,21 @@ const useStyles = makeStyles({
 
 export const TopStories = () => {
   const classes = useStyles();
-  const [articles, setArticles] = useState([]);
+
   const [loading, setLoading] = useState(false);
+  const [articles, setArticles] = useState([]);
+
+  const perPage = 5;
+  const [totalPages, setTotalPages] = useState(1);
+  const [page, setPage] = useState(1);
 
   useEffect(async () => {
     setLoading(true);
-    const data = await searchAllArticles('world')
-    setArticles(data);
+    const data = await searchAllArticles('world', page, perPage)
+    setTotalPages(data.totalResults);
+    setArticles([...articles, ...data.articles]);
     setLoading(false);
-  }, []);
+  }, [page]);
 
   return (
     <Layout>
@@ -34,6 +40,16 @@ export const TopStories = () => {
           </Button>
       </NavLink>
       <Articles loading={loading} articles={articles} />
+      {totalPages !== page && (
+        <Button
+          className={classes.button}
+          onClick={() => setPage(page + 1)}
+          variant="contained"
+          color="primary"
+        >
+          {loading ? 'Loading...' : 'Load More'}
+        </Button>
+      )}
     </Layout>
   );
 };

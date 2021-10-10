@@ -17,11 +17,9 @@ export async function getTopArticles(req, res) {
 }
 
 export async function searchArticles(req, res) {
-  const {
-    params: { topic }
-  } = req;
+  const { query: { topic, pageSize, page } } = req;
   try {
-    const data = await articlesService.searchAllArticles(topic);
+    const data = await articlesService.searchAllArticles(topic, pageSize, page);
 
     res.send(data);
   } catch (error) {

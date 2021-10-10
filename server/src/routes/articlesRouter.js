@@ -5,14 +5,18 @@ import {
   getTopArticles,
   searchArticles
 } from '../controllers/articlesController';
-import { searchAllArticlesValidation } from '../validation';
+import { searchAllArticlesValidation, getTopArticlesValidation } from '../validation';
 
 const articlesRouter = Router();
 
-articlesRouter.get('/top-articles', asyncHandler(getTopArticles));
+articlesRouter.get(
+  '/top-articles',
+  validator(getTopArticlesValidation),
+  asyncHandler(getTopArticles)
+);
 
 articlesRouter.get(
-  '/search-articles/:topic',
+  '/search-articles',
   validator(searchAllArticlesValidation),
   asyncHandler(searchArticles)
 );

@@ -1,7 +1,16 @@
 import { Joi } from 'celebrate';
 
 export const searchAllArticlesValidation = {
-  params: {
-    topic: Joi.string().required()
+  query: {
+    topic: Joi.string().required(),
+    pageSize: Joi.number(),
+    page: Joi.number()
+  }
+};
+
+export const getTopArticlesValidation = {
+  query: {
+    pageSize: Joi.number(),
+    page: Joi.number()
   }
 };

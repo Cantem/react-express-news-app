@@ -26,7 +26,7 @@ const Home = () => {
 
   const searchArticles = async (text) => {
     setLoading(true);
-    const data = await searchAllArticles(text);
+    const data = await searchAllArticles(text, page, perPage);
     setArticles(data);
     setLoading(false);
   };

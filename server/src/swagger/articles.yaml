@@ -8,7 +8,7 @@ paths:
         - in: query
           name: pageSize
           required: true
-          schemat:
+          schema:
             type: integer
         - in: query
           name: page
@@ -22,19 +22,30 @@ paths:
             application/json:
               schema:
                 type: array
-  /search-articles/{topic}:
+  /search-articles:
     get:
       tags:
         - Articles
       summary: Search articles
       parameters:
-       - name: topic
-         in: path
-         required: true
-         description: topic of requested articles
-         schema:
-          type: string
-          example: business
+        - in: query
+          name: topic
+          required: true
+          schema:
+            type: string
+            example: businness
+        - in: query
+          name: pageSize
+          required: false
+          schema:
+            type: integer
+            example: 10
+        - in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+            example: 1
       responses:
         200:
           description: Search articles

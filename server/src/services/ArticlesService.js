@@ -21,8 +21,8 @@ export class ArticlesService {
     }
   }
 
-  async searchAllArticles(topic) {
-    const url = `${API_URL}${API_SEARCH_FOR}${topic}${API_KEY}${API_PARAMS}${API_SORT_BY}`;
+  async searchAllArticles(topic, pageSize, page) {
+    const url = `${API_URL}${API_SEARCH_FOR}${topic}&languages=en&pageSize=${pageSize}&page=${page}${API_KEY}`
     try {
       const response = await axios.get(url);
       return response.data;

@@ -12,10 +12,8 @@ export const getArticles = async (page, perPage) => {
   }
 };
 
-export const searchAllArticles = async (text) => {
-  const url = new URL(
-    ARTICLES_API.API_URL + `${ARTICLES_API.SEARCH_ALL_ARTICLES}/${text}`
-  );
+export const searchAllArticles = async (text, page, perPage) => {
+  const url = `${ARTICLES_API.API_URL}${ARTICLES_API.SEARCH_ALL_ARTICLES}?topic=${text}&pageSize=${perPage}&page=${page}`;
   try {
     const response = await axios.get(url);
     return response.data;
