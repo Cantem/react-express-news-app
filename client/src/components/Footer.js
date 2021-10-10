@@ -24,8 +24,8 @@ export default function Footer() {
         sx={{ fontSize: 20, fontWeight: 'medium' }}
       >
         <Container maxWidth="lg">
-          <Grid container spacing={3}>
-            <Grid item xs={12} sm={4}>
+          <Grid container spacing={3} columns={1}>
+            <Grid item xs={12} md={4}>
               <Box borderBottom={1} fontSize={16} fontWeight={700}>
                 Help
               </Box>
@@ -40,7 +40,7 @@ export default function Footer() {
                 </Link>
               </Box>
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} md={4}>
               <Box borderBottom={1} fontSize={16} fontWeight={700}>
                 Account
               </Box>
@@ -55,7 +55,7 @@ export default function Footer() {
                 </Link>
               </Box>
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} md={4}>
               <Box borderBottom={1} fontSize={16} fontWeight={700}>
                 Messages
               </Box>
