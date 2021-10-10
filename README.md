@@ -19,7 +19,7 @@ Run following commands.
 
 You should see that both client and server are running
 
-```
+```javascript
 [0] > express-news-server@1.0.0 start:server /Users/rafalporzucek/projects/react-express-news-app
 [0] > nodemon src/server.js --exec "babel-node src/server.js"
 [0] 
