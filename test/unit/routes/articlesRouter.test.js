@@ -4,7 +4,7 @@ import app from '../../../src/app';
 import * as articlesController from '../../../src/controllers/articlesController';
 
 jest.mock('../../../src/controllers/articlesController', () => {
-  const mockSuccessResponse = async (_, res) => {
+  const mockSuccessResponse = async (_req, res) => {
     res.status(200).send();
     return Promise.resolve();
   };
@@ -29,20 +29,19 @@ describe('articlesRouter', () => {
 
   describe('get /top-articles', () => {
     it('should return status 200', async () => {
-      await request(app).get('/top-articles');
+      await request(app).get('/top-articles?page=1&pageSize=2');
       expect(
-        articlesController.getTopArticles.mock.calls[0][0].params
-      ).toStrictEqual({});
+        articlesController.getTopArticles.mock.calls[0][0].query
+      ).toStrictEqual({ page:1, pageSize: 2 });
     });
   });
 
-  describe('get /search-articles/:topic', () => {
+  describe('get /search-articles/', () => {
     it('should return status 200', async () => {
-      const topic = 'business';
-      await request(app).get(`/search-articles/${topic}`);
+      await request(app).get('/search-articles?topic=business&page=1&pageSize=2');
       expect(
-        articlesController.searchArticles.mock.calls[0][0].params
-      ).toStrictEqual({ topic: 'business' });
+        articlesController.searchArticles.mock.calls[0][0].query
+      ).toStrictEqual({ page: 1, pageSize: 2, topic: 'business' });
     });
   });
 });

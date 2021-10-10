@@ -44,7 +44,7 @@ describe('articles', () => {
     });
 
     it('should return status 200 for valid requests', async () => {
-      const url = '/search-articles/business';
+      const url = '/search-articles?topic=business';
       const response = await request(app).get(url);
 
       expect(response.status).toBe(200);
@@ -52,7 +52,7 @@ describe('articles', () => {
 
     it('should return status 500 for invalid requests - wrong credentials', async () => {
       process.env.NEWS_API_KEY = 'INVALID';
-      const url = '/search-articles/business';
+      const url = '/search-articles?topic=business';
       const response = await request(app).get(url);
 
       expect(response.status).toBe(500);

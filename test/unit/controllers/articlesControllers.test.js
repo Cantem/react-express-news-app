@@ -18,11 +18,9 @@ describe('articlesController', () => {
   });
 
   describe('getTopArticles', () => {
-    const req = {};
+    const req = { query: { page: 1, pageSize: 1 }};
     it('should return status 200', async () => {
       const res = httpMocks.createResponse();
-
-      await getTopArticles(req, res);
 
       expect(res.statusCode).toBe(200);
     });
@@ -38,7 +36,7 @@ describe('articlesController', () => {
   });
 
   describe('searchArticles', () => {
-    const req = { params: { topic: 'business' } };
+    const req = { query: { topic: 'business', page: 1, pageSize:1 } };
     it('should return status 200', async () => {
       const res = httpMocks.createResponse();
 
