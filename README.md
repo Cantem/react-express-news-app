@@ -71,7 +71,7 @@ You should see that both client and server are running
 
 ## Swagger
 
-An additional convenient feature is swagger interface.
+An additional convenient feature is swagger interface for the API part of the app (available at `port:5000`)
 
 ![image](https://user-images.githubusercontent.com/36113728/136695574-a11ccf29-331b-48cc-a183-1ea2498852c3.png)
 
