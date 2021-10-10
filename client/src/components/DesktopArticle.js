@@ -5,23 +5,23 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
-import { useTheme, useMediaQuery, makeStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 import { truncateTitle, truncateDescription } from '../utils/helpers';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   mainContainer: {
     display: 'flex',
     flexDirection: 'row',
     width: '100%',
     height: '200px',
     maxHeight: '75%',
-    boxShadow: '0 5px 8px 0 rgba(0, 0, 0, 0.3)',
+    boxShadow: '0 5px 8px 0 rgba(0, 0, 0, 0.3)'
   },
   leftContainer: {
     flex: '0 1 40%',
     minHeight: '100%',
     maxWidth: '40%',
-    padding: '.5e',
+    padding: '.5e'
   },
   rightContainer: {
     flex: '0 1 60%',
@@ -32,29 +32,28 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-
-const Article = ({ article }) => {
-  const theme = useTheme();
-  const showMedia = useMediaQuery(theme.breakpoints.up('md'));
+const DesktopArticle = ({ article }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
       {article && (
         <CardActionArea href={article.url} target="_blank">
           <Card className={classes.mainContainer}>
-            {showMedia && (
-              <CardMedia
-                className={classes.leftContainer}
-                component="img"
-                src={article.urlToImage}
-                alt="news-img"
-              />
-            )}
+            <CardMedia
+              className={classes.leftContainer}
+              component="img"
+              src={article.urlToImage}
+              alt="news-img"
+            />
             <CardContent className={classes.rightContainer}>
               <Typography color="textPrimary" variant="subtitle1">
-                  {truncateTitle(article.title)}
+                {truncateTitle(article.title)}
               </Typography>
-              <Typography color="textSecondary" variant="body2" paragraph={true}>
+              <Typography
+                color="textSecondary"
+                variant="body2"
+                paragraph={true}
+              >
                 {truncateDescription(article.description)}
               </Typography>
             </CardContent>
@@ -65,8 +64,8 @@ const Article = ({ article }) => {
   );
 };
 
-Article.propTypes = {
+DesktopArticle.propTypes = {
   article: PropTypes.object.isRequired
 };
 
-export default Article;
+export default DesktopArticle;

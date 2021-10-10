@@ -1,8 +1,9 @@
-import React  from 'react';
+import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme, useMediaQuery } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import Article from './Article.js';
+import DesktopArticle from './DesktopArticle.js';
+import MobileArticle from './MobileArticle.js';
 import PropTypes from 'prop-types';
 
 const useStyles = makeStyles({
@@ -10,20 +11,21 @@ const useStyles = makeStyles({
     maxWidth: '50vw',
     display: 'flex',
     flex: 1,
-    marginBottom: '40px',
-
+    marginBottom: '40px'
   },
   loader: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100%',
-  },
+    height: '100%'
+  }
 });
 
 export default function Articles({ loading, articles }) {
   const classes = useStyles();
+  const theme = useTheme();
+  const useMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <div className={classes.container}>
@@ -39,7 +41,11 @@ export default function Articles({ loading, articles }) {
             {articles &&
               articles.map((article, index) => (
                 <Grid item xs={12} key={index}>
-                  <Article article={article} />
+                  {useMobile ? (
+                    <MobileArticle article={article} />
+                  ) : (
+                    <DesktopArticle article={article} />
+                  )}
                 </Grid>
               ))}
           </Grid>
