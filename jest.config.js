@@ -13,7 +13,8 @@ module.exports = async () => {
       '!**/src/server.js',
       '!**/src/swagger/**',
       '!**/src/validation/**',
-      '!**/src/routes/healthRouter.js'
+      '!**/src/routes/healthRouter.js',
+      '!**/client/**'
     ],
     collectCoverage: true
   };
