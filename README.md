@@ -71,13 +71,14 @@ You should see that both client and server are running
 
 ## Swagger
 
-An additional conveninat feature is swagger interface.
+An additional convenient feature is swagger interface.
 
-
+![image](https://user-images.githubusercontent.com/36113728/136695574-a11ccf29-331b-48cc-a183-1ea2498852c3.png)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
+
 [MIT](https://choosealicense.com/licenses/mit/)
 
