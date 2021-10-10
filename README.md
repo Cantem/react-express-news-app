@@ -38,8 +38,8 @@ You should see that both client and server are running
 [1] 
 [1] <i> [webpack-dev-server] Project is running at:
 [1] <i> [webpack-dev-server] Loopback: http://localhost:8080/
-[1] <i> [webpack-dev-server] On Your Network (IPv4): http://192.168.0.5:8080/
-[1] <i> [webpack-dev-server] On Your Network (IPv6): http://[fe80::1]:8080/
+[1] <i> [webpack-dev-server] On Your Network (IPv4): <yourIPv4>
+[1] <i> [webpack-dev-server] On Your Network (IPv6): <yourIPv6>
 [1] <i> [webpack-dev-server] Content not from webpack is served from '/Users/rafalporzucek/projects/react-express-news-app/client/src' directory
 [1] asset main.js 2.68 MiB [emitted] (name: main)
 [1] asset index.html 221 bytes [emitted]
