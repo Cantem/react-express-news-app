@@ -8,13 +8,19 @@ import { truncateTitle, truncateDescription } from '../utils/helpers';
 
 
 const ActionAreaCard = ({ article }) => {
+  const articleDescription = article.description
+  ? article.description
+  : article.content;
+const articleImage = article.urlToImage
+  ? article.urlToImage
+  : 'https://image.shutterstock.com/image-photo/news-virtual-set-studio-chroma-600w-1694098984.jpg';
   return (
     article && (
       <Card sx={{ maxWidth: 345 }}>
         <CardActionArea href={article.url} target="_blank">
           <CardMedia
             component="img"
-            src={article.urlToImage}
+            src={articleImage}
             alt="news-img"
           />
           <CardContent>
@@ -22,7 +28,7 @@ const ActionAreaCard = ({ article }) => {
               {truncateTitle(article.title)}
             </Typography>
             <Typography variant="body2" color="textSecondary">
-              {truncateDescription(article.description)}
+              {truncateDescription(articleDescription)}
             </Typography>
           </CardContent>
         </CardActionArea>

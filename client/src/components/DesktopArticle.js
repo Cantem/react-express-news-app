@@ -33,6 +33,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const DesktopArticle = ({ article }) => {
+  const articleDescription = article.description
+    ? article.description
+    : article.content;
+  const articleImage = article.urlToImage
+    ? article.urlToImage
+    : 'https://image.shutterstock.com/image-photo/news-virtual-set-studio-chroma-600w-1694098984.jpg';
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -42,7 +48,7 @@ const DesktopArticle = ({ article }) => {
             <CardMedia
               className={classes.leftContainer}
               component="img"
-              src={article.urlToImage}
+              src={articleImage}
               alt="news-img"
             />
             <CardContent className={classes.rightContainer}>
@@ -54,7 +60,7 @@ const DesktopArticle = ({ article }) => {
                 variant="body2"
                 paragraph={true}
               >
-                {truncateDescription(article.description)}
+                {truncateDescription(articleDescription)}
               </Typography>
             </CardContent>
           </Card>
