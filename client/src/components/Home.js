@@ -28,7 +28,7 @@ const Home = () => {
     setLoading(true);
     const data = await searchAllArticles(text, page, perPage);
     setTotalPages(data.totalResults);
-    setArticles([...articles, ...data.articles]);
+    setArticles([...data.articles]);
     setLoading(false);
   };
 
