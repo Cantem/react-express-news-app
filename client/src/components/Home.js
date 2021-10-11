@@ -27,8 +27,8 @@ const Home = () => {
   const [error, setError] = useState(null);
 
   const searchArticles = async (text) => {
-    setLoading(true);
     try {
+      setLoading(true);
       const data = await searchAllArticles(text, page, perPage);
       setTotalPages(data.totalResults);
       setArticles([...data.articles]);
@@ -41,8 +41,8 @@ const Home = () => {
   };
 
   const getTopArticles = async () => {
-    setLoading(true);
     try {
+      setLoading(true);
       const data = await getArticles(page, perPage);
       setTotalPages(data.totalResults);
       setArticles([...articles, ...data.articles]);
