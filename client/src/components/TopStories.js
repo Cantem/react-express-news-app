@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Layout from './Layout';
 import Articles from './Articles';
+import ApiError from './ApiError';
 import { mockData } from '../api/mockData';
 import { searchAllArticles } from '../api/api';
 
@@ -24,12 +25,25 @@ export const TopStories = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [page, setPage] = useState(1);
 
-  useEffect(async () => {
+  const [error, setError] = useState(null);
+
+  const searchArticles = async () => {
     setLoading(true);
-    const data = await searchAllArticles('world', page, perPage)
-    setTotalPages(data.totalResults);
-    setArticles([...articles, ...data.articles]);
-    setLoading(false);
+    try {
+      const data = await searchAllArticles('world', page, perPage);
+      setTotalPages(data.totalResults);
+      setArticles([...articles, ...data.articles]);
+      setError(null);
+      setLoading(false);
+    } catch (e) {
+      setLoading(false);
+      setError(e);
+    }
+  };
+
+
+  useEffect(async () => {
+    searchArticles();
   }, [page]);
 
   return (
@@ -39,7 +53,11 @@ export const TopStories = () => {
             Go Back
           </Button>
       </NavLink>
-      <Articles loading={loading} articles={articles} />
+      {error ? (
+        <ApiError error={error} loadData={searchArticles}></ApiError>
+      ) : (
+        <Articles loading={loading} articles={articles} />
+      )}
       {totalPages !== page && (
         <Button
           className={classes.button}
