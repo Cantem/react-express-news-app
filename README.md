@@ -80,6 +80,19 @@ An additional convenient feature is swagger interface for the API part of the ap
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
+## Improvements
+
+Initial list of improvements:
+
+1. Missing controller call in unit test.✔︎
+2. Add basic API error handling. ✔︎
+3. Remove underline from go back
+4. Infinite scrolling
+5. Mobile hamburger menu.
+6. Go DRY and create re-usable code.
+
+You can keep track of the ongoing changes at (https://github.com/Cantem/react-express-news-app/tree/improvements) which will become a PR in the near future.
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
