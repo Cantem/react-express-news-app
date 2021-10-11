@@ -84,10 +84,10 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Initial list of improvements:
 
-1. Missing controller call in unit test.✔︎
-2. Add basic API error handling. ✔︎
-3. Remove underline from go back
-4. Infinite scrolling
+1. Missing controller call in unit test.✅
+2. Add basic API error handling. ✅
+3. Remove underline from go home in Not Found page + basic styles. ✅
+4. Infinite scrolling.
 5. Mobile hamburger menu.
 6. Go DRY and create re-usable code.
 
