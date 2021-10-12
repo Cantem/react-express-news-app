@@ -88,7 +88,7 @@ Initial list of improvements:
 2. Add basic API error handling. ✅
 3. Remove underline from go home in Not Found page + basic styles. ✅
 4. Infinite scrolling.
-5. Mobile hamburger menu.
+5. Mobile hamburger menu. ✅
 6. Go DRY and create re-usable code.
 
 You can keep track of the ongoing changes at (https://github.com/Cantem/react-express-news-app/tree/improvements) which will become a PR in the near future.
