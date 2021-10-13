@@ -90,6 +90,7 @@ Initial list of improvements:
 4. Infinite scrolling.
 5. Mobile hamburger menu. ✅
 6. Go DRY and create re-usable code.
+7. Add glabal theme. ✅
 
 You can keep track of the ongoing changes at (https://github.com/Cantem/react-express-news-app/tree/improvements) which will become a PR in the near future.
 
