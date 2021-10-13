@@ -91,6 +91,7 @@ Initial list of improvements:
 5. Mobile hamburger menu. ✅
 6. Go DRY and create re-usable code.
 7. Add glabal theme. ✅
+8. Add state management e.g. Redux
 
 You can keep track of the ongoing changes at (https://github.com/Cantem/react-express-news-app/tree/improvements) which will become a PR in the near future.
 
