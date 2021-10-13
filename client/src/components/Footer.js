@@ -21,12 +21,11 @@ export default function Footer() {
         py={{ xs: 5, sm: 5 }}
         bgcolor="#3f51b5"
         color="white"
-        sx={{ fontSize: 20, fontWeight: 'medium' }}
       >
         <Container maxWidth="lg">
           <Grid container spacing={3} columns={1}>
             <Grid item xs={12} md={4}>
-              <Box borderBottom={1} fontSize={16} fontWeight={700}>
+              <Box borderBottom={1}>
                 Help
               </Box>
               <Box>
@@ -41,7 +40,7 @@ export default function Footer() {
               </Box>
             </Grid>
             <Grid item xs={12} md={4}>
-              <Box borderBottom={1} fontSize={16} fontWeight={700}>
+              <Box borderBottom={1} >
                 Account
               </Box>
               <Box>
@@ -56,7 +55,7 @@ export default function Footer() {
               </Box>
             </Grid>
             <Grid item xs={12} md={4}>
-              <Box borderBottom={1} fontSize={16} fontWeight={700}>
+              <Box borderBottom={1} >
                 Messages
               </Box>
               <Box>
@@ -75,8 +74,7 @@ export default function Footer() {
             textAlign="center"
             pt={{ xs: 5, sm: 10 }}
             pb={{ xs: 5, sm: 0 }}
-            fontSize={16}
-            fontWeight={700}
+
           >
             React News App &reg; {new Date().getFullYear()}
           </Box>
