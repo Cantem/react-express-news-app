@@ -22,7 +22,10 @@ describe('articlesController', () => {
     it('should return status 200', async () => {
       const res = httpMocks.createResponse();
 
+      await getTopArticles(req, res);
+
       expect(res.statusCode).toBe(200);
+      expect(res._getData().articles).toHaveLength(1);
     });
 
     it('should throw error if credentail are incorrect', async () => {
