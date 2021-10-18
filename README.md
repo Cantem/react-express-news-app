@@ -96,7 +96,7 @@ Initial list of improvements:
 
 You can keep track of the ongoing changes at (https://github.com/Cantem/react-express-news-app/tree/improvements) which will become a PR in the near future.
 
-Ticked changes already merged into main branch. The rest is upcoming in the future.
+Ticked changes already merged into main branch. The rest is upcoming.
 
 ## License
 
