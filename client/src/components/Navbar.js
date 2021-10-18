@@ -3,18 +3,18 @@ import { makeStyles, useTheme, useMediaQuery } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
-import MenuIcon from '@material-ui/icons/Menu';
 import ModalDialog from './ModalDialog';
 import { Link } from 'react-router-dom';
+import Drawer from './Drawer';
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
   title: {
-    flexGrow: 1
+    flexGrow: 1,
+    textAlign: 'start'
   },
   appBar: {
     marginBottom: 40
@@ -38,15 +38,8 @@ const Navbar = () => {
 
   return (
     <AppBar position="static" className={classes.appBar}>
-      <Toolbar>
-        <IconButton
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-          className={classes.menuButton}
-        >
-          <MenuIcon />
-        </IconButton>
+      <Toolbar >
+        {useMobile && <Drawer/>}
         <Typography variant="h6" className={classes.title}>
           React News App
         </Typography>

@@ -13,12 +13,12 @@ const useStyles = makeStyles({
   }
 });
 
-const Error = () => {
+const Signup = () => {
   const classes = useStyles();
 
   return (
     <div className={classes.wrapper}>
-      <h1>404 - Not Found!</h1>
+      <h1>Sign-up page currently in production, please come back later</h1>
       <Link to="/" className={classes.link}>
         <Button variant="contained" size="large" color="primary">
           Go Home
@@ -28,4 +28,4 @@ const Error = () => {
   );
 };
 
-export default Error;
+export default Signup;
