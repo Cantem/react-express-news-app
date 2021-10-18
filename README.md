@@ -12,8 +12,9 @@ Before running the app on your localhost, create an account and API key at https
 Run following commands.
 
 1. `npm install`
-2. `cd client && npm install`
-3. `npm start`
+2. `cd client && npm install && npm run build`
+3.  `cd ..`
+4.  `npm start`
 
 `npm build` command is also available for the client and server side.
 
