@@ -18,8 +18,6 @@ Run following commands.
 
 `npm build` command is also available for the client and server side.
 
-Alternatively, you can run `npm run start:server` in the root directory and then change directory to client and run `npm start` (separate terminals).
-
 You should see that both client and server are running
 
 ```javascript
@@ -62,6 +60,8 @@ You should see that both client and server are running
 [1] webpack 5.57.1 compiled successfully in 5930 ms
 [0] Server running on port 5000
 ```
+
+Alternatively, you can run `npm run start:server` in the root directory and then change directory to client and run `npm start` (separate terminals).
 
 For easier development experience there's some mockData available at `client/src/api/mockData.js`.
 
