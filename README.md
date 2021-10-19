@@ -18,6 +18,8 @@ Run following commands.
 
 `npm build` command is also available for the client and server side.
 
+Alternatively, you can run `npm run start:server` in the root directory and then change directory to client and run `npm start` (separate terminals).
+
 You should see that both client and server are running
 
 ```javascript
